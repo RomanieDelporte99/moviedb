@@ -29,4 +29,7 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    pinia: {
+        storesDirs: ['./stores/**', './custom-folder/stores/**']
+    },
 })

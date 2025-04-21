@@ -10,6 +10,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     MovieButton: typeof import('primevue/button')['default']
     MovieCard: typeof import('primevue/card')['default']
+    MovieImage: typeof import('primevue/image')['default']
+    MovieTag: typeof import('primevue/tag')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
