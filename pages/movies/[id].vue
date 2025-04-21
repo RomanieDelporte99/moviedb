@@ -7,11 +7,11 @@
         icon="pi pi-arrow-left"
         @click="navigateTo('/movies/home')"
     />
-    <div class="grid grid-cols-2 gap-4">
+    <div class="md:grid md:grid-cols-2 md:gap-4">
       <MovieImage
           :src="`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`"
       />
-      <div>
+      <div class="my-4 md:my-0">
         <h2 class="text-xl font-medium">{{ movieDetail.title }}</h2>
         <div class="flex gap-4 mt-4">
           <div v-for="(genre, index) in movieDetail.genres" :key="index">
