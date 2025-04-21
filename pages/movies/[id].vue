@@ -45,8 +45,3 @@ const movieDetail = computed(() => {
   return moviesStore.movieDetail
 })
 </script>
-
-
-<style scoped>
-
-</style>

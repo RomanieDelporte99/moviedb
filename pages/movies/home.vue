@@ -47,11 +47,5 @@ const movies = computed(() => {
   console.log(moviesStore.movies)
   return moviesStore.movies;
 })
-
-
 </script>
 
-
-<style scoped>
-
-</style>
