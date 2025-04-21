@@ -8,9 +8,18 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    MovieAccordion: typeof import('primevue/accordion')['default']
+    MovieAccordionContent: typeof import('primevue/accordioncontent')['default']
+    MovieAccordionHeader: typeof import('primevue/accordionheader')['default']
+    MovieAccordionPanel: typeof import('primevue/accordionpanel')['default']
     MovieButton: typeof import('primevue/button')['default']
     MovieCard: typeof import('primevue/card')['default']
     MovieImage: typeof import('primevue/image')['default']
+    MovieTab: typeof import('primevue/tab')['default']
+    MovieTabList: typeof import('primevue/tablist')['default']
+    MovieTabPanel: typeof import('primevue/tabpanel')['default']
+    MovieTabPanels: typeof import('primevue/tabpanels')['default']
+    MovieTabs: typeof import('primevue/tabs')['default']
     MovieTag: typeof import('primevue/tag')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

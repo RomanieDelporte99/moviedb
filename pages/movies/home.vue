@@ -13,13 +13,16 @@
       </template>
 
       <template #content>
-        <div class="flex justify-between">
-          <h2 class="text-lg font-bold ">{{ movie.title }}</h2>
-          <MovieTag severity="primary" :value="movie.original_language"/>
+        <div class="flex justify-between h-16">
+          <h2 class="text-lg font-bold max-w-52">{{ movie.title }}</h2>
         </div>
       </template>
 
       <template #footer>
+        <div class="flex justify-end w-full">
+          <p class="mr-2">{{ movie.vote_count }}</p>
+          <i class="pi pi-star"/>
+        </div>
       </template>
     </MovieCard>
 
