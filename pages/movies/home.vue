@@ -1,11 +1,9 @@
 <template>
-  <div class="flex items-center justify-center bg-neutral-100 h-14">
-    <h2>Popular movies</h2>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     <MovieCard
         v-for="(movie, index) in movies" :key="index"
-        class="border border-neutral-4OO rounded-xl shadow-md w-full"
+        class="border border-neutral-4OO rounded-xl shadow-md w-full cursor-pointer"
+        @click="navigateTo(`/movies/${movie.id}`)"
     >
       <template #header>
         <img
@@ -15,28 +13,22 @@
       </template>
 
       <template #content>
-        <div class="flex flex-col h-full">
+        <div class="flex justify-between">
           <h2 class="text-lg font-bold ">{{ movie.title }}</h2>
-          <p>{{ movie.overview }}</p>
+          <MovieTag severity="primary" :value="movie.original_language"/>
         </div>
       </template>
 
       <template #footer>
-        <div class="mt-auto">
-          <MovieButton
-              severity="tertiary"
-              class="bg-red-200 rounded-lg p-2"
-              label="See detail"
-              icon="pi pi-arrow-right"
-              @click="navigateTo(`/movies/${movie.id}`)"
-          />
-        </div>
       </template>
     </MovieCard>
 
   </div>
 </template>
 <script setup>
+definePageMeta({
+  layout: 'layout'
+})
 const moviesStore = useMovieStore();
 
 onMounted(async () => {
