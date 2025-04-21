@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
     <MovieCard
         v-for="(movie, index) in movies" :key="index"
         class="border border-neutral-4OO rounded-xl shadow-md w-full cursor-pointer"
