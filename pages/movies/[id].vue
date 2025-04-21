@@ -37,7 +37,6 @@ const moviesStore = useMovieStore();
 
 onMounted(async () => {
   const $route = useRoute()
-  console.log($route.params.id)
   await moviesStore.fetchMovieDetails($route.params.id);
 })
 

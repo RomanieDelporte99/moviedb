@@ -44,7 +44,6 @@ onMounted(async () => {
 })
 
 const movies = computed(() => {
-  console.log(moviesStore.movies)
   return moviesStore.movies;
 })
 </script>
