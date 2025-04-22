@@ -34,7 +34,7 @@ export const useMovieStore = defineStore('movie', {
         async fetchMovieDetails(movieId) {
             try {
                 const { $movieDBApi } = useNuxtApp()
-                $movieDBApi(`movie/${movieId}?language=en-US`)
+                $movieDBApi(`${movieId}?language=en-US`)
                     .then(data => this.movieDetail = data)
                     .catch(err => console.error(err));
             } catch (error) {
