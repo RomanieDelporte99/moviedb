@@ -40,21 +40,18 @@
           </div>
           <p class="my-8">{{ movieDetail.overview }}</p>
         </div>
-        <MovieTabs value="0">
-          <MovieTabList>
-            <MovieTab value="0">Production Companies</MovieTab>
-            <MovieTab value="1">Header II</MovieTab>
-            <MovieTab value="2">Header III</MovieTab>
-          </MovieTabList>
-          <MovieTabPanels>
-            <MovieTabPanel
-                v-for="(company, index) in movieDetail.production_companies" :value="index"
-            >
-              {{ company }}
-            </MovieTabPanel>
-          </MovieTabPanels>
-        </MovieTabs>
-
+        <MovieAccordion class="!p-0" value="0">
+          <MovieAccordionPanel>
+            <MovieAccordionHeader>Production Companies</MovieAccordionHeader>
+            <MovieAccordionContent v-for="tab in movieDetail.production_companies">
+              <ul class="m-0">
+                <li class="list-disc ml-1 mt-2 text-sm">
+                  {{ tab.name }}
+                </li>
+              </ul>
+            </MovieAccordionContent>
+          </MovieAccordionPanel>
+        </MovieAccordion>
       </div>
     </div>
   </div>
@@ -70,6 +67,7 @@ onMounted(async () => {
 const movieDetail = computed(() => {
   return moviesStore.movieDetail
 })
+
 </script>
 
 
@@ -78,5 +76,9 @@ const movieDetail = computed(() => {
   img {
     @apply w-full;
   }
+}
+
+:deep(.p-accordionheader) {
+  @apply p-1;
 }
 </style>
