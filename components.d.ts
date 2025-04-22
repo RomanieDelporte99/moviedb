@@ -15,6 +15,7 @@ declare module 'vue' {
     MovieButton: typeof import('primevue/button')['default']
     MovieCard: typeof import('primevue/card')['default']
     MovieImage: typeof import('primevue/image')['default']
+    MovieRating: typeof import('primevue/rating')['default']
     MovieTab: typeof import('primevue/tab')['default']
     MovieTabList: typeof import('primevue/tablist')['default']
     MovieTabPanel: typeof import('primevue/tabpanel')['default']

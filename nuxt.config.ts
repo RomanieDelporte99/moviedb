@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             MOVIE_DB_API_KEY: '',
+            movieDBUrl: ''
         }
     },
 

@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import PrimeUI from 'tailwindcss-primeui';
 
 export default {
     content: [
@@ -8,11 +7,10 @@ export default {
         "./pages/**/*.vue",
         "./plugins/**/*.{js,ts}",
         "./app.vue",
-        "./error.vue",
     ],
     theme: {
         extend: {},
     },
-    plugins: [PrimeUI]
+    plugins: [require('tailwindcss-primeui')]
 }
 

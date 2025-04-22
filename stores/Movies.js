@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia';
+import { defineStore } from 'pinia';
 
 export const useMovieStore = defineStore('movie', {
     state: () => {
@@ -12,18 +12,8 @@ export const useMovieStore = defineStore('movie', {
     actions: {
         async fetchPopularMovies() {
             try {
-                const config = useRuntimeConfig()
-
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: `Bearer ${config.public.MOVIE_DB_API_KEY}`
-                    }
-                };
-
-                fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-                    .then(res => res.json())
+                const { $movieDBApi } = useNuxtApp()
+                $movieDBApi('popular?language=en-US&page=1')
                     .then(data => this.movies = data.results)
                     .catch(err => console.error(err));
             } catch (error) {
@@ -32,18 +22,9 @@ export const useMovieStore = defineStore('movie', {
         },
         async fetchMovies() {
             try {
-                const config = useRuntimeConfig()
+                const { $movieDBApi } = useNuxtApp()
 
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: `Bearer ${config.public.MOVIE_DB_API_KEY}`
-                    }
-                };
-
-                fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-                    .then(res => res.json())
+                $movieDBApi('now_playing?language=en-US&page=1')
                     .then(data => this.movies = data.results)
                     .catch(err => console.error(err));
             } catch (error) {
@@ -52,17 +33,8 @@ export const useMovieStore = defineStore('movie', {
         },
         async fetchMovieDetails(movieId) {
             try {
-                const config = useRuntimeConfig()
-
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: `Bearer ${config.public.MOVIE_DB_API_KEY}`
-                    }
-                };
-                fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
-                    .then(res => res.json())
+                const { $movieDBApi } = useNuxtApp()
+                $movieDBApi(`movie/${movieId}?language=en-US`)
                     .then(data => this.movieDetail = data)
                     .catch(err => console.error(err));
             } catch (error) {
