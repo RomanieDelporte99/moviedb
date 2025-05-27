@@ -81,7 +81,6 @@ onMounted(async () => {
 const movieDetail = computed(() => {
   return moviesStore.movieDetail;
 });
-console.log('hello');
 
 </script>
 
