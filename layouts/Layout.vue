@@ -1,7 +1,7 @@
 <template>
   <div
-      id="app"
-      class="flex flex-col md:flex-row"
+    id="app"
+    class="flex flex-col md:flex-row"
   >
     <Navigation/>
     <div class="flex-1 w-screen max-w-full overflow-x-hidden">
@@ -13,6 +13,6 @@
 </template>
 
 <script setup>
-import Navigation from "~/components/Navigation.vue";
+import Navigation from '~/components/Navigation.vue';
 
 </script>

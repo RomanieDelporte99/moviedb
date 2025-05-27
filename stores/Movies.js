@@ -14,7 +14,7 @@ export const useMovieStore = defineStore('movie', {
       try {
         const { $movieDBApi } = useNuxtApp();
         $movieDBApi('popular?language=en-US&page=1')
-          .then(data => this.movies = data.results)
+          .then(data => this.popularMovies = data.results)
           .catch(err => console.error(err));
       } catch (error) {
         console.error('Error fetching movies:', error);
