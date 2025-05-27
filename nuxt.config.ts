@@ -11,9 +11,10 @@ export default defineNuxtConfig({
     },
 
     modules: [
-        '@pinia/nuxt',
-        '@primevue/nuxt-module',
-        '@nuxtjs/tailwindcss',
+      '@pinia/nuxt',
+      '@primevue/nuxt-module',
+      '@nuxtjs/tailwindcss',
+      '@nuxt/eslint',
     ],
     primevue: {
         components: {

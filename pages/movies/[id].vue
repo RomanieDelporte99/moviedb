@@ -2,32 +2,30 @@
   <div>
     <div class="md:grid md:grid-cols-2 md:gap-4">
       <MovieButton
-          severity="tertiary"
-          rounded
-          class="mb-4 !absolute z-[2] top-0 m-4"
-          icon="pi pi-arrow-left"
-          @click="navigateTo('/movies/home')"
+        severity="tertiary"
+        rounded
+        class="mb-4 !absolute z-[2] top-0 m-4"
+        icon="pi pi-arrow-left"
+        @click="navigateTo('/movies/home')"
       />
       <MovieImage
-          class="block relative"
-          :src="`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`"
-          preview
+        class="block relative"
+        :src="`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`"
+        preview
       />
       <div class="p-4 my-4 md:my-0">
         <h2 class="text-xl font-medium">{{ movieDetail.title }}</h2>
         <div class="mt-4">
           <div class="flex items-center gap-4">
             <p class="text-sm flex items-center">
-              <i
-                  class="pi pi-calendar"
-              />
+              <i class="pi pi-calendar"/>
               <span class="font-medium ml-2">{{ movieDetail.release_date }}</span>
             </p>
             <MovieTag
-                class="text-xl"
-                icon="pi pi-clock"
-                severity="secondary"
-                :value="movieDetail.runtime + ' min'"
+              class="text-xl"
+              icon="pi pi-clock"
+              severity="secondary"
+              :value="movieDetail.runtime + ' min'"
             />
             <div class="flex">
               <i class="pi pi-star"/>
@@ -44,9 +42,9 @@
             <template #content>
               <ul class="list-disc">
                 <li
-                    v-for="(company, index) in movieDetail.production_companies"
-                    :key="index"
-                    class="text-sm my-2"
+                  v-for="(company, index) in movieDetail.production_companies"
+                  :key="index"
+                  class="text-sm my-2"
                 >
                   {{ company.name }}
                 </li>
@@ -59,11 +57,11 @@
             </template>
             <template #content>
               <MovieTag
-                  v-for="(genre, index) in movieDetail.genres"
-                  :key="index"
-                  severity="primary"
-                  :value="genre.name"
-                  class="mr-2 mb-2 inline-block"
+                v-for="(genre, index) in movieDetail.genres"
+                :key="index"
+                severity="primary"
+                :value="genre.name"
+                class="mr-2 mb-2 inline-block"
               />
             </template>
           </MovieCard>
@@ -76,16 +74,16 @@
 const moviesStore = useMovieStore();
 
 onMounted(async () => {
-  const $route = useRoute()
+  const $route = useRoute();
   await moviesStore.fetchMovieDetails($route.params.id);
-})
+});
 
 const movieDetail = computed(() => {
-  return moviesStore.movieDetail
-})
+  return moviesStore.movieDetail;
+});
+console.log('hello');
 
 </script>
-
 
 <style scoped>
 :deep(.p-image) {
