@@ -84,8 +84,6 @@ const movieDetail = computed(() => {
   return moviesStore.movieDetail
 })
 
-console.log(moviesStore.movieDetail)
-
 </script>
 
 
