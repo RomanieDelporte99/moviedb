@@ -15,16 +15,8 @@
       />
       <div class="p-4 my-4 md:my-0">
         <h2 class="text-xl font-medium">{{ movieDetail.title }}</h2>
-        <div class="flex gap-4 mt-4">
-          <div v-for="(genre, index) in movieDetail.genres" :key="index">
-            <MovieTag
-                severity="primary" :value="genre.name"
-                class="hover:bg-transparent hover:cursor-pointer"
-            />
-          </div>
-        </div>
         <div class="mt-4">
-          <div class="flex items-center">
+          <div class="flex items-center gap-4">
             <p class="text-sm flex items-center">
               <i
                   class="pi pi-calendar"
@@ -32,26 +24,50 @@
               <span class="font-medium ml-2">{{ movieDetail.release_date }}</span>
             </p>
             <MovieTag
-                class="text-xl ml-2"
-                icon="pi pi-hourglass"
+                class="text-xl"
+                icon="pi pi-clock"
                 severity="secondary"
                 :value="movieDetail.runtime + ' min'"
             />
+            <div class="flex">
+              <i class="pi pi-star"/>
+              <p class="ml-2">{{ movieDetail.vote_average }}/10</p>
+            </div>
           </div>
           <p class="my-8">{{ movieDetail.overview }}</p>
         </div>
-        <MovieAccordion class="!p-0" value="0">
-          <MovieAccordionPanel>
-            <MovieAccordionHeader>Production Companies</MovieAccordionHeader>
-            <MovieAccordionContent v-for="tab in movieDetail.production_companies">
-              <ul class="m-0">
-                <li class="list-disc ml-1 mt-2 text-sm">
-                  {{ tab.name }}
+        <div class="flex gap-4 flex-col md:flex-row">
+          <MovieCard class="p-4 w-full">
+            <template #header>
+              <h3 class="text-lg font-semibold">Production Companies</h3>
+            </template>
+            <template #content>
+              <ul class="list-disc">
+                <li
+                    v-for="(company, index) in movieDetail.production_companies"
+                    :key="index"
+                    class="text-sm my-2"
+                >
+                  {{ company.name }}
                 </li>
               </ul>
-            </MovieAccordionContent>
-          </MovieAccordionPanel>
-        </MovieAccordion>
+            </template>
+          </MovieCard>
+          <MovieCard class="p-4 w-full">
+            <template #header>
+              <h3 class="text-lg font-semibold">Genres</h3>
+            </template>
+            <template #content>
+              <MovieTag
+                  v-for="(genre, index) in movieDetail.genres"
+                  :key="index"
+                  severity="primary"
+                  :value="genre.name"
+                  class="mr-2 mb-2 inline-block"
+              />
+            </template>
+          </MovieCard>
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +83,8 @@ onMounted(async () => {
 const movieDetail = computed(() => {
   return moviesStore.movieDetail
 })
+
+console.log(moviesStore.movieDetail)
 
 </script>
 

@@ -8,12 +8,12 @@
       <template #header>
         <img
             :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="Movie Poster"
-            class="rounded-t-xl h-40 w-full object-cover"
+            class="rounded-t-xl h-full w-full object-cover"
         >
       </template>
 
       <template #content>
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between">
           <h2 class="text-lg font-bold max-w-52">{{ movie.title }}</h2>
           <div>
             <MovieTag severity="secondary" :value="movie.vote_average.toFixed(1)"/>
