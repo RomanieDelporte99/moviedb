@@ -29,7 +29,7 @@
             />
             <div class="flex">
               <i class="pi pi-star"/>
-              <p class="ml-2">{{ movieDetail.vote_average }}/10</p>
+              <p class="ml-2">{{ Math.round(movieDetail.vote_average) }}/10</p>
             </div>
           </div>
           <p class="my-8">{{ movieDetail.overview }}</p>

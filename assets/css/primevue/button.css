@@ -82,7 +82,7 @@
 }
 
 .p-button-tertiary {
-    @apply bg-neutral-50 text-black enabled:hover:bg-red-200 enabled:active:bg-red-300 enabled:hover:border-red-200 border border-neutral-300
+    @apply bg-neutral-50 text-black enabled:hover:bg-neutral-200 enabled:active:bg-neutral-300 enabled:hover:border-neutral-400 border border-neutral-300
 }
 
 .p-button-secondary {

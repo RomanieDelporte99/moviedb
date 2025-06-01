@@ -10,7 +10,7 @@
         <img
           :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
           alt="Movie Poster"
-          class="rounded-t-xl h-full w-full object-cover"
+          class="rounded-t-xl h-80 w-full object-cover"
         >
       </template>
 
