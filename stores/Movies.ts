@@ -11,16 +11,18 @@ export const useMovieStore = defineStore('movie', () => {
       const data = $movieDBApi(`popular?language=en-US&page=${page}`);
 
       popularMovies.value = data.results;
+      return popularMovies.value;
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
   };
-  const fetchMovies = (page: number) => {
+  const fetchMovies = async (page: number) => {
     try {
       const { $movieDBApi } = useNuxtApp();
-      const data = $movieDBApi(`now_playing?language=en-US&page=${page}`);
+      const data = await $movieDBApi(`now_playing?language=en-US&page=${page}`);
 
       movies.value = data.results;
+      return movies.value;
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
@@ -28,9 +30,9 @@ export const useMovieStore = defineStore('movie', () => {
   const fetchMovieDetails = (movieId: number) => {
     try {
       const { $movieDBApi } = useNuxtApp();
-      $movieDBApi(`${movieId}?language=en-US`)
-        .then(data => movieDetail.value = data)
-        .catch(err => console.error(err));
+      const data = $movieDBApi(`${movieId}?language=en-US`);
+
+      movieDetail.value = data;
     } catch (error) {
       console.error('Error fetching movie details:', error);
     }

@@ -39,16 +39,15 @@ definePageMeta({
   layout: 'layout'
 });
 const moviesStore = useMovieStore();
+const currentPage = ref(1);
 
 onMounted(async () => {
-  await moviesStore.fetchMovies();
+  await moviesStore.fetchMovies(currentPage.value);
 });
 
 const movies = computed(() => {
   return moviesStore.movies;
 });
-
-const currentPage = ref(0);
 
 const onHandleChangePage = (event) => {
   currentPage.value = event.page + 1;
