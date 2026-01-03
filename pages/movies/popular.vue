@@ -27,6 +27,7 @@
           </div>
         </template>
       </MovieCard>
+      <PagePaginator @change-page="onHandleChangePage($event)"/>
     </div>
   </div>
 </template>
@@ -36,12 +37,18 @@ definePageMeta({
   layout: 'layout'
 });
 const moviesStore = useMovieStore();
+const currentPage = ref(1);
 
 onMounted(async () => {
-  await moviesStore.fetchPopularMovies();
+  await moviesStore.fetchPopularMovies(currentPage.value);
 });
 
 const popularMovies = computed(() => {
   return moviesStore.popularMovies;
 });
+
+const onHandleChangePage = (event) => {
+  currentPage.value = event + 1;
+  moviesStore.fetchPopularMovies(event);
+};
 </script>
